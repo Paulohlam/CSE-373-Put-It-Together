@@ -1,0 +1,39 @@
+Script started on 2023-05-10 17:15:20-07:00 [TERM="xterm-256color" TTY="/dev/pts/588" COLUMNS="120" LINES="30"]
+[?2004h[paul0h@calgary HW4]$ [7mecho $USER[27mecho $USER
+[?2004lpaul0h
+[?2004h[paul0h@calgary HW4]$ [7mexport PATH=$PATH:.[27mexport PATH=$PATH:.
+[?2004l[?2004h[paul0h@calgary HW4]$ [7mecho $PATH[27mecho $PATH
+[?2004l/usr/lib/java/apache-maven-3.8.6/bin:/usr/lib/java/apache-ant-1.10.12/bin:/data/netid/paul0h/.local/bin:/data/netid/paul0h/bin:/usr/kerberos/sbin:/usr/kerberos/bin:/usr/lib/java/apache-maven-3.8.6/bin:/usr/lib/java/apache-ant-1.10.12/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:.
+[?2004h[paul0h@calgary HW4]$ [7mwget https://courses.cs.washington.edu/courses/cse374/23sp/calendar/lecturelist.html[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cwget https://courses.cs.washington.edu/courses/cse374/23sp/calendar/lecturelist.html
+[?2004l--2023-05-10 17:15:57--  https://courses.cs.washington.edu/courses/cse374/23sp/calendar/lecturelist.html
+Resolving courses.cs.washington.edu (courses.cs.washington.edu)... 128.208.1.193, 2607:4000:200:10::c1
+Connecting to courses.cs.washington.edu (courses.cs.washington.edu)|128.208.1.193|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 11623 (11K) [text/html]
+Saving to: ‘lecturelist.html.4’
+
+lecturelist.html.4              0%[                                                  ]       0  --.-KB/s               lecturelist.html.4            100%[=================================================>]  11.35K  --.-KB/s    in 0s      
+
+2023-05-10 17:15:57 (53.9 MB/s) - ‘lecturelist.html.4’ saved [11623/11623]
+
+[?2004h[paul0h@calgary HW4]$ [7m ./geturls urllist lecturelist.html[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C ./geturls urllist lecturelist.html
+[?2004l'urllist' already exists and will be overwritten
+[?2004h[paul0h@calgary HW4]$ [7m measurepage https://courses.cs.washington.edu/courses/cse374/23sp/lectures/ccode/hello.c[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C measurepage https://courses.cs.washington.edu/courses/cse374/23sp/lectures/ccode/hello.c
+[?2004l31
+[?2004h[paul0h@calgary HW4]$ [7mrunanalysis dataout testurls[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Crunanalysis dataout testurls
+[?2004l'dataout' already exists and will be overwritten
+Performing word count measurement on https://courses.cs.washington.edu/courses/cse374/23sp/lectures/ccode/magic.c...
+...successful
+Performing word count measurement on https://courses.cs.washington.edu/courses/cse374/23sp/lectures/ccode/notaurl...
+...failure
+Performing word count measurement on https://courses.cs.washington.edu/courses/cse374/23sp/lectures/ccode/mystery.c...
+...successful
+[?2004h[paul0h@calgary HW4]$ [7mRscript scatterplot.R[27mRscript scatterplot.R
+[?2004l[1] 137
+[1] 68.5
+null device 
+          1 
+[?2004h[paul0h@calgary HW4]$ exit
+[?2004lexit
+
+Script done on 2023-05-10 17:16:27-07:00 [COMMAND_EXIT_CODE="0"]

@@ -1,0 +1,41 @@
+#!/bin/bash
+#
+# Paul Lam
+# CSE 374 Homework 4
+# problem 1
+# 05/08/2023
+#
+# Extracts URLS for C code files and stores them in a text file
+
+# Checks the number of arumgnets passed
+if [ $# -lt 2 ]; then
+  echo "Usage: $0 output_file input_file" >&2
+  exit 1
+fi
+
+output_file="$1"
+input_file="$2"
+
+# Checks if the input file exists
+if [ ! -f "$input_file" ]; then
+  echo "'$input_file' does not exist" >&2
+  exit 1
+fi
+
+# Checks if file exist to overide
+if [ -f "$output_file" ]; then
+  echo "'$output_file' already exists and will be overwritten" >&2
+fi
+
+URL="https://courses.cs.washington.edu/courses/cse374/23sp/"
+
+# Extracts URL's with C code and stores ina text file
+grep -oP 'href="\K[^"]+\.c' "$input_file" | grep 'lectures/ccode/' | while read -r url; do
+  if [[ $url != http* ]]; then
+    url="${URL}/${url}"
+  fi
+  url=${url//\/..\//}
+  echo "$url"
+done > "$output_file"
+
+exit 0

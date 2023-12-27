@@ -1,0 +1,45 @@
+#!/bin/bash
+#
+# Paul Lam
+# CSE 374 Homework 4
+# problem 3
+# 05/08/2023
+#
+# Measures and outputs the size of the page
+
+# Checking the number of arguments passed
+if [ $# -ne 2 ]; then
+  echo "Usage: $0 output_file urls_file" >&2
+  exit 1
+fi
+
+output_file="$1"
+urls_file="$2"
+
+# Checking if the input file exists
+if [ ! -f "$urls_file" ]; then
+  echo "'$urls_file' does not exist" >&2
+  exit 1
+fi
+
+# Checking if the output file exists
+if [ -f "$output_file" ]; then
+  echo "Replacing $output_file" >&2
+fi
+
+index=1
+rm -f "$output_file"
+
+# Reading URLs from the file and measuring page sizes
+while read -r url; do
+  echo "Performing word count measurement on $url..."
+  page_size=$(./measurepage "$url")
+  if [ "$page_size" -gt 0 ]; then
+    echo "...sucessful" >&2
+  else
+    echo "...failure" >&2
+  fi
+  index=$((index + 1))
+done < "$urls_file"
+
+exit 0
